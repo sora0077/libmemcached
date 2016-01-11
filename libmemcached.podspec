@@ -11,7 +11,7 @@ Pod::Spec.new do |s|
   s.version          = "0.1.0"
   s.summary          = "import libmemcached in Swift."
 
-  s.homepage         = "https://github.com/sora0077/libevent"
+  s.homepage         = "https://github.com/sora0077/libmemcached"
   # s.screenshots     = "www.example.com/screenshots_1", "www.example.com/screenshots_2"
   s.license          = 'MIT'
   s.author           = { "sora0077" => "t_hayashi0077@gmail.com" }
