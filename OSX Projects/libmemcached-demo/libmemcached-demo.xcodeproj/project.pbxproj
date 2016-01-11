@@ -1,0 +1,310 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D6B796AC307770F9295C40B6 /* Pods_libmemcached_demo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3963DBF17F4693EFAAD78CD /* Pods_libmemcached_demo.framework */; };
+		D98EBB801C43B583006421F0 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = D98EBB7F1C43B583006421F0 /* main.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		D98EBB7A1C43B583006421F0 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		9E500BE2C7791EC34F66C850 /* Pods-libmemcached-demo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-libmemcached-demo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-libmemcached-demo/Pods-libmemcached-demo.debug.xcconfig"; sourceTree = "<group>"; };
+		D98EBB7C1C43B583006421F0 /* libmemcached-demo */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "libmemcached-demo"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D98EBB7F1C43B583006421F0 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		D9CD03B10443F3B842D15D2C /* Pods-libmemcached-demo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-libmemcached-demo.release.xcconfig"; path = "Pods/Target Support Files/Pods-libmemcached-demo/Pods-libmemcached-demo.release.xcconfig"; sourceTree = "<group>"; };
+		F3963DBF17F4693EFAAD78CD /* Pods_libmemcached_demo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_libmemcached_demo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D98EBB791C43B583006421F0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D6B796AC307770F9295C40B6 /* Pods_libmemcached_demo.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		034AA7D008D951327D752E14 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				9E500BE2C7791EC34F66C850 /* Pods-libmemcached-demo.debug.xcconfig */,
+				D9CD03B10443F3B842D15D2C /* Pods-libmemcached-demo.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		AC30A6CAA8D78E14D28CB4B3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F3963DBF17F4693EFAAD78CD /* Pods_libmemcached_demo.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D98EBB731C43B583006421F0 = {
+			isa = PBXGroup;
+			children = (
+				D98EBB7E1C43B583006421F0 /* libmemcached-demo */,
+				D98EBB7D1C43B583006421F0 /* Products */,
+				034AA7D008D951327D752E14 /* Pods */,
+				AC30A6CAA8D78E14D28CB4B3 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		D98EBB7D1C43B583006421F0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D98EBB7C1C43B583006421F0 /* libmemcached-demo */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D98EBB7E1C43B583006421F0 /* libmemcached-demo */ = {
+			isa = PBXGroup;
+			children = (
+				D98EBB7F1C43B583006421F0 /* main.swift */,
+			);
+			path = "libmemcached-demo";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D98EBB7B1C43B583006421F0 /* libmemcached-demo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D98EBB831C43B583006421F0 /* Build configuration list for PBXNativeTarget "libmemcached-demo" */;
+			buildPhases = (
+				7977BAA514465E0AC914FABD /* Check Pods Manifest.lock */,
+				D98EBB781C43B583006421F0 /* Sources */,
+				D98EBB791C43B583006421F0 /* Frameworks */,
+				D98EBB7A1C43B583006421F0 /* CopyFiles */,
+				1301F10F7F31AACEB9AFDB7C /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "libmemcached-demo";
+			productName = "libmemcached-demo";
+			productReference = D98EBB7C1C43B583006421F0 /* libmemcached-demo */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D98EBB741C43B583006421F0 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0720;
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = jp.sora0077;
+				TargetAttributes = {
+					D98EBB7B1C43B583006421F0 = {
+						CreatedOnToolsVersion = 7.2;
+					};
+				};
+			};
+			buildConfigurationList = D98EBB771C43B583006421F0 /* Build configuration list for PBXProject "libmemcached-demo" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = D98EBB731C43B583006421F0;
+			productRefGroup = D98EBB7D1C43B583006421F0 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D98EBB7B1C43B583006421F0 /* libmemcached-demo */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1301F10F7F31AACEB9AFDB7C /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-libmemcached-demo/Pods-libmemcached-demo-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7977BAA514465E0AC914FABD /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D98EBB781C43B583006421F0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D98EBB801C43B583006421F0 /* main.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		D98EBB811C43B583006421F0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		D98EBB821C43B583006421F0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		D98EBB841C43B583006421F0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9E500BE2C7791EC34F66C850 /* Pods-libmemcached-demo.debug.xcconfig */;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_INCLUDE_PATHS = "$(PODS_ROOT)/libmemcached ../../libmemcached";
+			};
+			name = Debug;
+		};
+		D98EBB851C43B583006421F0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D9CD03B10443F3B842D15D2C /* Pods-libmemcached-demo.release.xcconfig */;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_INCLUDE_PATHS = "$(PODS_ROOT)/libmemcached ../../libmemcached";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D98EBB771C43B583006421F0 /* Build configuration list for PBXProject "libmemcached-demo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D98EBB811C43B583006421F0 /* Debug */,
+				D98EBB821C43B583006421F0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D98EBB831C43B583006421F0 /* Build configuration list for PBXNativeTarget "libmemcached-demo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D98EBB841C43B583006421F0 /* Debug */,
+				D98EBB851C43B583006421F0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D98EBB741C43B583006421F0 /* Project object */;
+}
