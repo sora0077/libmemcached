@@ -12,12 +12,37 @@ import libmemcached
 extension Connection {
     
     public enum Error: ErrorType {
+        case ConvertError
         case ConnectionError(String)
     }
     
-    public enum Value {
+    private enum Value {
         case String(Swift.String)
         case Data(NSData)
+
+        static let stringFlag: UInt32 = 1
+        static let dataFlag: UInt32 = 2
+        
+        var flags: UInt32 {
+            switch self {
+            case .String:
+                return Value.stringFlag
+            case .Data:
+                return Value.dataFlag
+            }
+        }
+        
+        var raw: (value: UnsafePointer<Int8>, length: Int)? {
+            switch self {
+            case .String(let str):
+                guard let str = str.cStringUsingEncoding(NSUTF8StringEncoding) else {
+                    return nil
+                }
+                return (UnsafePointer(str), str.count)
+            case .Data(let data):
+                return (UnsafePointer(data.bytes), data.length)
+            }
+        }
     }
 }
 
@@ -73,21 +98,28 @@ final public class Connection {
         return rc == MEMCACHED_SUCCESS
     }
     
-    func bytesForKey(key: String) throws -> [Int8]? {
-        
-        guard let data = try dataForKey(key) else { return nil }
-        var buf: [Int8] = [Int8](count: data.length, repeatedValue: 0)
-        data.getBytes(&buf, length: data.length)
-        return buf
-    }
-    
     func stringForKey(key: String) throws -> String? {
         
-        guard let data = try dataForKey(key) else { return nil }
-        return String(data: data, encoding: NSUTF8StringEncoding)
+        switch try valueForKey(key) {
+        case .String(let str)?:
+            return str
+        default:
+            return nil
+        }
     }
     
     func dataForKey(key: String) throws -> NSData? {
+        
+        switch try valueForKey(key) {
+        case .Data(let data)?:
+            return data
+        default:
+            return nil
+        }
+    }
+    
+    private func valueForKey(key: String) throws -> Value? {
+        
         var val_len: Int = 0
         var flags: UInt32 = 0
         var rc: memcached_return = MEMCACHED_MAXIMUM_RETURN
@@ -108,30 +140,35 @@ final public class Connection {
             return nil
         }
         
-        return NSData(bytes: val, length: val_len)
+        if flags == Value.stringFlag {
+            return String.fromCString(val).map(Value.String)
+        }
+        
+        if flags == Value.dataFlag {
+            return Value.Data(NSData(bytes: val, length: val_len))
+        }
+        return nil
     }
     
     func set(value: String, forKey key: String, expire: Int = 0) throws {
         
-        if let data = value.dataUsingEncoding(NSUTF8StringEncoding) {
-            try set(data, forKey: key, expire: expire)
-        }
+        try set(Value.String(value), forKey: key, expire: expire)
     }
     
     func set(value: NSData, forKey key: String, expire: Int = 0) throws {
        
-        var rc: memcached_return = MEMCACHED_MAXIMUM_RETURN
-        rc = memcached_set(_mc, key, key.utf8.count, UnsafePointer(value.bytes), value.length, expire, 0)
-        
-        if rc != MEMCACHED_SUCCESS {
-            throw Connection.Error.ConnectionError(String.fromCString(memcached_strerror(_mc, rc)) ?? "")
-        }
+        try set(Value.Data(value), forKey: key, expire: expire)
     }
     
-    func set(value: [Int8], forKey key: String, expire: Int = 0) throws {
+    private func set(value: Value, forKey key: String, expire: Int = 0) throws {
         
         var rc: memcached_return = MEMCACHED_MAXIMUM_RETURN
-        rc = memcached_set(_mc, key, key.utf8.count, value, value.count, expire, 0)
+        
+        guard let raw = value.raw else {
+            throw Connection.Error.ConvertError
+        }
+        
+        rc = memcached_set(_mc, key, key.utf8.count, raw.value, raw.length, expire, value.flags)
         
         if rc != MEMCACHED_SUCCESS {
             throw Connection.Error.ConnectionError(String.fromCString(memcached_strerror(_mc, rc)) ?? "")
