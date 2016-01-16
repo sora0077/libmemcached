@@ -10,7 +10,7 @@ import Cocoa
 @testable import Memcached
 
 
-struct Options: ConnectionOption {
+struct Options: ServerConnectionOption {
     
     var host: String = "localhost"
 }
@@ -24,17 +24,17 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func applicationDidFinishLaunching(aNotification: NSNotification) {
         // Insert code here to initialize your application
         
-        let conn = Connection(options: Options())
+        let pool = ConnectionPool(options: Options())
+        try! pool.attach()
+        let conn = try! pool.connection()
         
         print(conn.ping)
-        
-        try! conn.connect()
         
         do {
             if let val = try conn.stringForKey("value") {
                 print(val)
             } else {
-                try conn.set("日本語😬👨‍👩‍👧‍👧", forKey: "value", expire: 6)
+                try conn.set("日本語😬👨‍👩‍👧‍👧", forKey: "value", expire: 60)
                 print("failure")
             }
         } catch {

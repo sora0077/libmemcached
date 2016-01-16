@@ -48,49 +48,19 @@ extension Connection {
 
 final public class Connection {
     
-    let _options: ConnectionOption
-//    let _pool: ConnectionPool
+    private let _pool: ConnectionPool
+    private let _mc: UnsafeMutablePointer<memcached_st>
     
-    var _mc: UnsafeMutablePointer<memcached_st> = nil
-    
-    init(options: ConnectionOption) {
-        _options = options
-//        _pool = pool
+    init(memcached: UnsafeMutablePointer<memcached_st>, pool: ConnectionPool) {
+        _mc = memcached
+        _pool = pool
     }
     
     deinit {
-        dispose()
+        _pool.pop(_mc)
     }
-    
-    func dispose() {
-        if _mc != nil {
-            memcached_free(_mc)
-        }
-    }
-    
-    func connect() throws {
         
-        dispose()
-        
-        _mc = memcached_create(nil)
-        
-        var rc: memcached_return = MEMCACHED_MAXIMUM_RETURN
-        let servers = memcached_server_list_append(nil, _options.host, _options.port, &rc)
-        defer {
-            memcached_server_list_free(servers)
-        }
-        if rc != MEMCACHED_SUCCESS {
-            throw Connection.Error.ConnectionError(String.fromCString(memcached_strerror(_mc, rc)) ?? "")
-        }
-        
-        rc = memcached_server_push(_mc, servers)
-        if rc != MEMCACHED_SUCCESS {
-            throw Connection.Error.ConnectionError(String.fromCString(memcached_strerror(_mc, rc)) ?? "")
-        }
-        
-    }
-    
-    var ping: Bool {
+    public var ping: Bool {
         
         guard _mc != nil else { return false }
         
@@ -98,7 +68,7 @@ final public class Connection {
         return rc == MEMCACHED_SUCCESS
     }
     
-    func stringForKey(key: String) throws -> String? {
+    public func stringForKey(key: String) throws -> String? {
         
         switch try valueForKey(key) {
         case .String(let str)?:
@@ -108,7 +78,7 @@ final public class Connection {
         }
     }
     
-    func dataForKey(key: String) throws -> NSData? {
+    public func dataForKey(key: String) throws -> NSData? {
         
         switch try valueForKey(key) {
         case .Data(let data)?:
@@ -150,12 +120,12 @@ final public class Connection {
         return nil
     }
     
-    func set(value: String, forKey key: String, expire: Int = 0) throws {
+    public func set(value: String, forKey key: String, expire: Int = 0) throws {
         
         try set(Value.String(value), forKey: key, expire: expire)
     }
     
-    func set(value: NSData, forKey key: String, expire: Int = 0) throws {
+    public func set(value: NSData, forKey key: String, expire: Int = 0) throws {
        
         try set(Value.Data(value), forKey: key, expire: expire)
     }
