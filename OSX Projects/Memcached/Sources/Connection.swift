@@ -9,6 +9,13 @@
 import Foundation
 import libmemcached
 
+func throwIfError(mc: UnsafePointer<memcached_st>, _ rc: memcached_return_t) throws {
+    
+    if rc != MEMCACHED_SUCCESS {
+        throw Connection.Error.ConnectionError(String.fromCString(memcached_strerror(mc, rc)) ?? "")
+    }
+}
+
 extension Connection {
     
     public enum Error: ErrorType {
@@ -90,9 +97,7 @@ final public class Connection {
             return nil
         }
         
-        if rc != MEMCACHED_SUCCESS {
-            throw Connection.Error.ConnectionError(String.fromCString(memcached_strerror(_mc, rc)) ?? "")
-        }
+        try throwIfError(_mc, rc)
         
         if val == nil {
             return nil
@@ -129,8 +134,18 @@ final public class Connection {
             rc = memcached_set(_mc, key, key.utf8.count, UnsafePointer(data.bytes), data.length, expire, value.flags)
         }
         
-        if rc != MEMCACHED_SUCCESS {
-            throw Connection.Error.ConnectionError(String.fromCString(memcached_strerror(_mc, rc)) ?? "")
-        }
+        try throwIfError(_mc, rc)
+    }
+    
+    public func remove(forKey key: String, expire: Int = 0) throws {
+        
+        let rc = memcached_delete(_mc, key, key.utf8.count, expire)
+        try throwIfError(_mc, rc)
+    }
+    
+    public func flush(expire: Int = 0) throws {
+        
+        let rc = memcached_flush(_mc, expire)
+        try throwIfError(_mc, rc)
     }
 }

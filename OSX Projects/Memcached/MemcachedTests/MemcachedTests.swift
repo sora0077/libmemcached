@@ -26,22 +26,22 @@ class MemcachedTests: QuickSpec {
         beforeEach {
             let pool = ConnectionPool(options: Options())
             self.conn = try! pool.connection()
+            try! self.conn.flush()
         }
         describe("memcached") {
-            context("getter, setter") {
-                it("has no value, if not set") {
+            context("getter") {
+                it("has no value before setting") {
                     do {
-                        let val = try self.conn.stringForKey("novalue")
+                        let val = try self.conn.stringForKey("key")
                         expect(val).to(beNil())
                     } catch {
                         XCTFail()
                     }
                 }
-                it("has value, when you set the value before") {
+                it("has value, when you set the value") {
                     do {
                         try self.conn.set("test", forKey: "key")
                         let val = try self.conn.stringForKey("key")
-                        XCTAssertEqual(val, "test")
                         expect(val).to(equal("test"))
                     } catch {
                         XCTFail()
@@ -49,9 +49,22 @@ class MemcachedTests: QuickSpec {
                 }
                 it("has no value, if value is expired") {
                     do {
-                        try self.conn.set("test", forKey: "expire", expire: 1)
-                        expect(try self.conn.stringForKey("expire")).to(equal("test"))
-                        expect(try self.conn.stringForKey("expire")).toEventually(beNil(), timeout: 1.1)
+                        try self.conn.set("test", forKey: "key", expire: 1)
+                        expect(try self.conn.stringForKey("key")).to(equal("test"))
+                        expect(try self.conn.stringForKey("key")).toEventually(beNil(), timeout: 1.1)
+                    } catch {
+                        XCTFail()
+                    }
+                }
+            }
+            
+            context("remove") {
+                it("has no value after removing") {
+                    do {
+                        try self.conn.set("test", forKey: "key")
+                        expect(try self.conn.stringForKey("key")).to(equal("test"))
+                        try self.conn.remove(forKey: "key")
+                        expect(try self.conn.stringForKey("key")).to(beNil())
                     } catch {
                         XCTFail()
                     }

@@ -38,9 +38,7 @@ final public class ConnectionPool {
         
         var rc: memcached_return = MEMCACHED_MAXIMUM_RETURN
         let mc = memcached_pool_pop(_pool!, false, &rc)
-        if rc != MEMCACHED_SUCCESS {
-            throw Connection.Error.ConnectionError(String.fromCString(memcached_strerror(mc, rc)) ?? "")
-        }
+        try throwIfError(mc, rc)
         let conn = Connection(memcached: mc, pool: self)
         return conn
     }
