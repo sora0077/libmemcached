@@ -7,47 +7,56 @@
 //
 
 import XCTest
+import Quick
+import Nimble
 @testable import Memcached
 
-class MemcachedTests: XCTestCase {
+
+struct Options: ServerConnectionOption {
     
-    override func setUp() {
-        super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
+    var host: String = "localhost"
+}
+
+
+class MemcachedTests: QuickSpec {
     
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-        super.tearDown()
-    }
+    var conn: Connection!
     
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-    
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        
-        let a = "日本語😬👨‍👩‍👧‍👧".dataUsingEncoding(NSUTF8StringEncoding)!
-        self.measureBlock {
-            // Put the code you want to measure the time of here.
-            for _ in 0..<500000 {
-                _ = String(data: a, encoding: NSUTF8StringEncoding)
+    override func spec() {
+        beforeEach {
+            let pool = ConnectionPool(options: Options())
+            self.conn = try! pool.connection()
+        }
+        describe("memcached") {
+            context("getter, setter") {
+                it("has no value, if not set") {
+                    do {
+                        let val = try self.conn.stringForKey("novalue")
+                        expect(val).to(beNil())
+                    } catch {
+                        XCTFail()
+                    }
+                }
+                it("has value, when you set the value before") {
+                    do {
+                        try self.conn.set("test", forKey: "key")
+                        let val = try self.conn.stringForKey("key")
+                        XCTAssertEqual(val, "test")
+                        expect(val).to(equal("test"))
+                    } catch {
+                        XCTFail()
+                    }
+                }
+                it("has no value, if value is expired") {
+                    do {
+                        try self.conn.set("test", forKey: "expire", expire: 1)
+                        expect(try self.conn.stringForKey("expire")).to(equal("test"))
+                        expect(try self.conn.stringForKey("expire")).toEventually(beNil(), timeout: 1.1)
+                    } catch {
+                        XCTFail()
+                    }
+                }
             }
         }
     }
-    
-    func testPerformanceExample2() {
-        // This is an example of a performance test case.
-        
-        let b = "日本語😬👨‍👩‍👧‍👧".cStringUsingEncoding(NSUTF8StringEncoding)!
-        self.measureBlock {
-            // Put the code you want to measure the time of here.
-            for _ in 0..<500000 {
-                _ = String.fromCString(b)
-            }
-        }
-    }
-    
 }

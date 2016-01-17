@@ -31,18 +31,6 @@ extension Connection {
                 return Value.dataFlag
             }
         }
-        
-        var raw: (value: UnsafePointer<Int8>, length: Int)? {
-            switch self {
-            case .String(let str):
-                guard let str = str.cStringUsingEncoding(NSUTF8StringEncoding) else {
-                    return nil
-                }
-                return (UnsafePointer(str), str.count)
-            case .Data(let data):
-                return (UnsafePointer(data.bytes), data.length)
-            }
-        }
     }
 }
 
@@ -122,6 +110,7 @@ final public class Connection {
     
     public func set(value: String, forKey key: String, expire: Int = 0) throws {
         
+        print(value, key)
         try set(Value.String(value), forKey: key, expire: expire)
     }
     
@@ -133,12 +122,12 @@ final public class Connection {
     private func set(value: Value, forKey key: String, expire: Int = 0) throws {
         
         var rc: memcached_return = MEMCACHED_MAXIMUM_RETURN
-        
-        guard let raw = value.raw else {
-            throw Connection.Error.ConvertError
+        switch value {
+        case .String(let str):
+            rc = memcached_set(_mc, key, key.utf8.count, str, str.utf8.count, expire, value.flags)
+        case .Data(let data):
+            rc = memcached_set(_mc, key, key.utf8.count, UnsafePointer(data.bytes), data.length, expire, value.flags)
         }
-        
-        rc = memcached_set(_mc, key, key.utf8.count, raw.value, raw.length, expire, value.flags)
         
         if rc != MEMCACHED_SUCCESS {
             throw Connection.Error.ConnectionError(String.fromCString(memcached_strerror(_mc, rc)) ?? "")

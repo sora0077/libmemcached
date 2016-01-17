@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		09748F549F05692AF2C6BCBA /* Pods_Memcached.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BBBD67958D654C28EDAF81B /* Pods_Memcached.framework */; };
+		84075691BD35033950EE822B /* Pods_MemcachedTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FC3DD0D446434DDA90E11E3 /* Pods_MemcachedTests.framework */; };
 		D98EBB941C43CFF3006421F0 /* Memcached.h in Headers */ = {isa = PBXBuildFile; fileRef = D98EBB931C43CFF3006421F0 /* Memcached.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D98EBB9B1C43CFF3006421F0 /* Memcached.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D98EBB901C43CFF3006421F0 /* Memcached.framework */; };
 		D98EBBA01C43CFF3006421F0 /* MemcachedTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D98EBB9F1C43CFF3006421F0 /* MemcachedTests.swift */; };
@@ -72,6 +73,8 @@
 /* Begin PBXFileReference section */
 		4EFEB98BF757B78F15BDAF3E /* Pods-Memcached.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Memcached.release.xcconfig"; path = "Pods/Target Support Files/Pods-Memcached/Pods-Memcached.release.xcconfig"; sourceTree = "<group>"; };
 		7BBBD67958D654C28EDAF81B /* Pods_Memcached.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Memcached.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7FC3DD0D446434DDA90E11E3 /* Pods_MemcachedTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MemcachedTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C667A030864BD8C65FA9E118 /* Pods-MemcachedTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MemcachedTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MemcachedTests/Pods-MemcachedTests.release.xcconfig"; sourceTree = "<group>"; };
 		D59F1735637A2B00512713B5 /* Pods-Memcached.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Memcached.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Memcached/Pods-Memcached.debug.xcconfig"; sourceTree = "<group>"; };
 		D98EBB901C43CFF3006421F0 /* Memcached.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Memcached.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D98EBB931C43CFF3006421F0 /* Memcached.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Memcached.h; sourceTree = "<group>"; };
@@ -95,6 +98,7 @@
 		D98EBBE31C43F6A5006421F0 /* DemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D98EBBE71C43F6A5006421F0 /* DemoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoUITests.swift; sourceTree = "<group>"; };
 		D98EBBE91C43F6A5006421F0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F7191AAD4B212F8483317C28 /* Pods-MemcachedTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MemcachedTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MemcachedTests/Pods-MemcachedTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +115,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D98EBB9B1C43CFF3006421F0 /* Memcached.framework in Frameworks */,
+				84075691BD35033950EE822B /* Pods_MemcachedTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -144,6 +149,7 @@
 			children = (
 				D98EBBC21C43F640006421F0 /* AppKit.framework */,
 				7BBBD67958D654C28EDAF81B /* Pods_Memcached.framework */,
+				7FC3DD0D446434DDA90E11E3 /* Pods_MemcachedTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -153,6 +159,8 @@
 			children = (
 				D59F1735637A2B00512713B5 /* Pods-Memcached.debug.xcconfig */,
 				4EFEB98BF757B78F15BDAF3E /* Pods-Memcached.release.xcconfig */,
+				F7191AAD4B212F8483317C28 /* Pods-MemcachedTests.debug.xcconfig */,
+				C667A030864BD8C65FA9E118 /* Pods-MemcachedTests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -280,9 +288,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D98EBBA71C43CFF3006421F0 /* Build configuration list for PBXNativeTarget "MemcachedTests" */;
 			buildPhases = (
+				2D4CCCEBF2E2564CBE631DC4 /* Check Pods Manifest.lock */,
 				D98EBB961C43CFF3006421F0 /* Sources */,
 				D98EBB971C43CFF3006421F0 /* Frameworks */,
 				D98EBB981C43CFF3006421F0 /* Resources */,
+				6FE15B42729643B5D312B056 /* Embed Pods Frameworks */,
+				FA0D343AAC18F6D24927A058 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -441,6 +452,36 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		2D4CCCEBF2E2564CBE631DC4 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		6FE15B42729643B5D312B056 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MemcachedTests/Pods-MemcachedTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		9C59E8EDBB3B17A3F485C9B8 /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -469,6 +510,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		FA0D343AAC18F6D24927A058 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MemcachedTests/Pods-MemcachedTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -699,10 +755,12 @@
 		};
 		D98EBBA81C43CFF3006421F0 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F7191AAD4B212F8483317C28 /* Pods-MemcachedTests.debug.xcconfig */;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = MemcachedTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				LIBRARY_SEARCH_PATHS = /usr/local/lib;
 				PRODUCT_BUNDLE_IDENTIFIER = jp.sora0077.MemcachedTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -710,10 +768,12 @@
 		};
 		D98EBBA91C43CFF3006421F0 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C667A030864BD8C65FA9E118 /* Pods-MemcachedTests.release.xcconfig */;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = MemcachedTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				LIBRARY_SEARCH_PATHS = /usr/local/lib;
 				PRODUCT_BUNDLE_IDENTIFIER = jp.sora0077.MemcachedTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -836,6 +896,7 @@
 				D98EBBEC1C43F6A5006421F0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D98EBBED1C43F6A5006421F0 /* Build configuration list for PBXNativeTarget "DemoTests" */ = {
 			isa = XCConfigurationList;
@@ -844,6 +905,7 @@
 				D98EBBEF1C43F6A5006421F0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D98EBBF01C43F6A5006421F0 /* Build configuration list for PBXNativeTarget "DemoUITests" */ = {
 			isa = XCConfigurationList;
@@ -852,6 +914,7 @@
 				D98EBBF21C43F6A5006421F0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

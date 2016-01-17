@@ -18,18 +18,16 @@ final public class ConnectionPool {
     
     public init(options: ConnectionOption) {
         self.options = options
+        _pool = memcached_pool(options.configuration, options.configuration.utf8.count)
     }
     
     deinit {
         detach()
     }
     
-    public func attach() throws {
+    func detach() {
         
-        _pool = memcached_pool(options.configuration, options.configuration.utf8.count)
-    }
-    
-    public func detach() {
+        print("detached")
         
         if let pool = _pool {
             memcached_pool_destroy(pool)

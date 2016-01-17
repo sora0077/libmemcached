@@ -25,7 +25,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         // Insert code here to initialize your application
         
         let pool = ConnectionPool(options: Options())
-        try! pool.attach()
         let conn = try! pool.connection()
         
         print(conn.ping)

@@ -1,7 +1,13 @@
 source 'https://github.com/CocoaPods/Specs.git'
 use_frameworks!
-platform :osx
+platform :osx, '10.10'
 
 target 'Memcached' do
-  pod "libmemcached", :path => "../../"
+    pod 'libmemcached', :path => "../../"
+end
+
+target 'MemcachedTests' do
+    pod 'libmemcached', :path => "../../"
+    pod 'Quick'
+    pod 'Nimble'
 end
