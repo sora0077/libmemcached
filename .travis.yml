@@ -4,8 +4,8 @@ before_script:
   - brew install xctool
   - brew install libmemcached
   - /usr/local/bin/memcached &
-  - cd OSX\ Projects/Memcached/ && pod install
   - ls OSX\ Projects/Memcached/
+  - cd OSX\ Projects/Memcached/ && pod install
 xcode_workspace: OSX Projects/Memcached/Memcached.xcworkspace
 xcode_scheme: Memcached
 xcode_sdk: macosx
