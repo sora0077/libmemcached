@@ -1,5 +1,7 @@
 # libmemcached
 
+[![Build Status](https://travis-ci.org/sora0077/libmemcached.svg?branch=master)](https://travis-ci.org/sora0077/libmemcached)
+
 ## Usage
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
