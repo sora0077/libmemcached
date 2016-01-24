@@ -1,14 +1,14 @@
 PODS:
-  - libmemcached (0.1.0)
+  - CMemcached (0.1.1)
 
 DEPENDENCIES:
-  - libmemcached (from `../../`)
+  - CMemcached (from `../../`)
 
 EXTERNAL SOURCES:
-  libmemcached:
+  CMemcached:
     :path: ../../
 
 SPEC CHECKSUMS:
-  libmemcached: cf9f508fc70c235fd5e1d47a826403df7af3d15c
+  CMemcached: a0faaf7f916f03d15d6479746957d5e47cb6a270
 
 COCOAPODS: 0.39.0

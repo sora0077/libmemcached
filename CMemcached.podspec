@@ -7,7 +7,7 @@
 #
 
 Pod::Spec.new do |s|
-  s.name             = "libmemcached"
+  s.name             = "CMemcached"
   s.version          = "0.1.1"
   s.summary          = "import libmemcached in Swift."
 
@@ -18,9 +18,9 @@ Pod::Spec.new do |s|
   s.source           = { :git => "https://github.com/sora0077/libmemcached.git", :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
-  s.preserve_paths = 'libmemcached/**/*'
+  s.preserve_paths = 'CMemcached/**/*'
   s.xcconfig  = {
-    'SWIFT_INCLUDE_PATHS' => '$(PODS_ROOT)/libmemcached',
+    'SWIFT_INCLUDE_PATHS' => '$(PODS_ROOT)/CMemcached',
     'HEADER_SEARCH_PATHS' => '/usr/local/include',
     'LIBRARY_SEARCH_PATHS' => '/usr/local/lib',
   }

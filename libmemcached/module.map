@@ -1,7 +1,0 @@
-module libmemcached [system] {
-    link "memcached"
-    link "memcachedutil"
-    umbrella header "libmemcached-umbrella.h"
-    export *
-    module * { export * }
-}

@@ -3,5 +3,5 @@ use_frameworks!
 platform :osx
 
 target 'libmemcached-demo' do
-  pod "libmemcached", :path => "../../"
+  pod "CMemcached", :path => "../../"
 end

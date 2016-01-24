@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import libmemcached
+import CMemcached
 
 let memc = memcached_create(nil)
 let servers = memcached_servers_parse("localhost:11211")

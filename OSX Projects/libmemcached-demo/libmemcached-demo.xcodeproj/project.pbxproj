@@ -270,7 +270,7 @@
 			baseConfigurationReference = 9E500BE2C7791EC34F66C850 /* Pods-libmemcached-demo.debug.xcconfig */;
 			buildSettings = {
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_INCLUDE_PATHS = "$(PODS_ROOT)/libmemcached ../../libmemcached";
+				SWIFT_INCLUDE_PATHS = "$(PODS_ROOT)/CMemcached ../../CMemcached";
 			};
 			name = Debug;
 		};
@@ -279,7 +279,7 @@
 			baseConfigurationReference = D9CD03B10443F3B842D15D2C /* Pods-libmemcached-demo.release.xcconfig */;
 			buildSettings = {
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_INCLUDE_PATHS = "$(PODS_ROOT)/libmemcached ../../libmemcached";
+				SWIFT_INCLUDE_PATHS = "$(PODS_ROOT)/CMemcached ../../CMemcached";
 			};
 			name = Release;
 		};

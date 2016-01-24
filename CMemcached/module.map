@@ -1,0 +1,11 @@
+module CMemcached [system] {
+    link "memcached"
+    header "CMemcached-umbrella.h"
+    export *
+}
+
+module CMemcachedUtil [system] {
+    link "memcachedutil"
+    header "CMemcachedUtil-umbrella.h"
+    export *
+}
