@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "CMemcached"
-  s.version          = "0.1.1"
+  s.version          = "0.2.0"
   s.summary          = "import libmemcached in Swift."
 
   s.homepage         = "https://github.com/sora0077/libmemcached"
